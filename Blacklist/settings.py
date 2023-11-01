@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-_^8h6wumasw+p!+-cow0$i09n1a^6zav-w9d-^*#+kir-x@8+k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'client',
+    'provider',
     'userextend',
+    'membership',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Blacklist.urls'
@@ -66,6 +69,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'Blacklist.context_processors.get_all_memberships',
+                'Blacklist.context_processors.get_membership'
+
             ],
         },
     },
@@ -120,6 +126,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR), 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Media Files
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -127,5 +141,13 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/' # unde vrem ca u'lizatorul sa fie redirec'onat dupa auten'ficare (vom specifica prefixul)
+LOGIN_REDIRECT_URL = '/' # unde vrem ca utilizatorul sa fie redirectionat dupa auten'ficare (vom specifica prefixul)
 LOGOUT_REDIRECT_URL = '/login/' # unde vrem ca u'lizatorul sa fie redirec'onat dupa delogare
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'mail.blacklist.ro'
+# EMAIL_HOST_USER = 'aplicatie@blacklist.ro'
+# EMAIL_HOST_PASSWORD = 'Django1234!'
+# EMAIL_PORT = 587

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Team {% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <br>
+            <img src="{% static 'media/images/Rares.jpg' %}" class="rounded ms-auto d-block" alt="...">
+            <br>
+            <img src="{% static 'media/images/Vladd.jpg' %}" class="rounded ms-auto d-block" alt="...">
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}
+{% endblock %}

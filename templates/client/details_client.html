@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} View details - {{ client }} {% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <br><br>
+                <div class="card text-center">
+                    <div class="card-header">
+                        View details
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ client }}</h5>
+                        <p class="card-text"><strong>Telephone: </strong> {{ client.telephone }}.</p>
+                        <p class="card-text"><strong>Email: </strong> {{ client.email }}.</p>
+
+                        <a href="{% url 'list-of-clients' %}" class="btn btn-primary">Back</a>
+                    </div>
+                    <div class="card-footer text-body-secondary">
+                        <strong> Created at : </strong> {{ client.created_at|date:"d-m-Y H:i:s" }}/
+                        <strong> Update at : </strong> {{ client.updated_at|date:"d-m-Y H:i:s" }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

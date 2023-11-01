@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} View details - {{ provider }} {% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <br><br>
+                <div class="card text-center">
+                    <div class="card-header">
+                        View details
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ provider }}</h5>
+                        <p class="card-text"><strong>Provider Name: </strong> {{ provider.provider_name }}.</p>
+                        <p class="card-text"><strong>CUI: </strong> {{ provider.cui }}.</p>
+                        <p class="card-text"><strong>Email: </strong>{{ provider.email }}</p>
+
+                        <a href="{% url 'list-of-providers' %}" class="btn btn-primary">Back</a>
+                    </div>
+                    <div class="card-footer text-body-secondary">
+                        <strong> Created at : </strong> {{ provider.created_at|date:"d-m-Y H:i:s" }}/
+                        <strong> Update at : </strong> {{ provider.updated_at|date:"d-m-Y H:i:s" }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,48 +1,50 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Blacklist APP</a>
+        <a class="navbar-brand" href="{% url 'homepage' %}">Blacklist</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-right: 35px; ">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}">Home</a>
+                    <a class="nav-link active" style="margin-right: 10px" aria-current="page" href="{% url 'homepage' %}">Home</a>
                 </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">
-                        Providers
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Create a provider</a></li>
-                        <li><a class="dropdown-item" href="#">List of providers</a></li>
-
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">
-                        Clients
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Create a new client</a></li>
-                        <li><a class="dropdown-item" href="#">List of clients</a></li>
-                    </ul>
-                </li>
-
+                {% if user.is_authenticated %}
+                    <div class="dropdown" data-bs-theme="dark">
+                        <button class="btn btn-{{ color }} dropdown-toggle" style="margin-right: 10px;" type="button" id="dropdownMenuButtonDark"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                            Providers
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonDark">
+                            <li><a class="dropdown-item" href="{% url 'create-provider' %}">Create a new provider</a>
+                            </li>
+                            <li><a class="dropdown-item" href="{% url 'list-of-providers' %}">List of providers</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown" data-bs-theme="dark">
+                        <button class="btn btn-{{ color }} dropdown-toggle" type="button" id="dropdownMenuButtonDark"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                            Clients
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonDark">
+                            <li><a class="dropdown-item" href="{% url 'create-client' %}">Create a new client</a>
+                            </li>
+                            <li><a class="dropdown-item" href="{% url 'list-of-clients' %}">List of clients</a></li>
+                        </ul>
+                    </div>
+                {% endif %}
             </ul>
             {% if user.is_authenticated %}
-                <div class="btn-group dropstart">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                <div class="btn-group dropdown" data-bs-theme="dark">
+
+                    <button type="button" class="btn btn-{{ color }} dropdown-toggle" data-bs-toggle="dropdown"
                             aria-expanded="false">
                         My profile
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{% url 'password_change' %}">Change password</a></li>
-                        <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                        <li><a class="dropdown-item" href="{% url 'logout' %}">Logout, {{ user.username }}</a></li>
                     </ul>
                 </div>
 
