@@ -3,13 +3,47 @@
 {% block title %} Team {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2">
-            <img src="{% static 'media/images/logo.png' %}" class="rounded ms-auto d-block" alt="...">
-            <img src="{% static 'media/images/logo.png' %}" class="rounded ms-auto d-block" alt="...">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <br><br><br><br><br><br><br>
+                <p class="text-start text-center">Privacy rules, in the context of data
+                    protection and confidentiality,
+                    refer to regulations and laws that govern the handling and
+                    safeguarding of individuals' personal information.
+                    These rules vary by country and jurisdiction, but there are
+                    fundamental principles that are common in many data
+                    protection laws. Some of these principles include:
+                    Consent: Data collection and processing must be done with
+                    clear and informed consent from the individual.
+                    Specific Purpose: Personal data should be collected and
+                    processed only for specified and lawful purposes.
+                    Data Minimization: Collected data should be relevant and
+                    limited to what is necessary for the stated purpose.
+                    Confidentiality and Security: Organizations must take
+                    measures to protect personal data from unauthorized access
+                    and disclosure.
+                    Data Access and Correction: Individuals have the right to
+                    access their own personal data and correct it if it is
+                    inaccurate.
+                    Data Portability: Individuals have the right to transfer
+                    their personal data from one organization to another in a
+                    usable format.
+                    Data Erasure: Individuals can request the deletion of their
+                    personal data under certain circumstances.
+                    Breach Notification: Organizations are required to notify
+                    affected individuals and relevant authorities in the event
+                    of a data breach.
+                    Data protection laws vary from country to country, and
+                    well-known regulations in this field include the General
+                    Data Protection Regulation
+                    (GDPR) in the European Union and the Consumer Privacy Laws
+                    in the United States. It's crucial to be aware of and comply
+                    with the relevant laws and regulations to protect personal
+                    data privacy and avoid potential legal consequences.</p>
+                 <br><br><br><br><br><br>
+            </div>
         </div>
     </div>
-</div>
-{% include 'footer.html' %}
+    {% include 'footer.html' %}
 {% endblock %}
