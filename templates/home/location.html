@@ -3,13 +3,25 @@
 {% block title %} Team {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
+    <br><br><br>
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <div class="row">
-        <div class="col-md-2">
-            <img src="{% static 'media/images/logo.png' %}" class="rounded ms-auto d-block" alt="...">
-            <img src="{% static 'media/images/logo.png' %}" class="rounded ms-auto d-block" alt="...">
+        <div class="col-md-6 offset-md-3">
+            <h1>Location of Zalau, Romania</h1>
+            <div id="map" style="width: 600px; height: 400px;"></div>
+            <br>
+            <script>
+                var map = L.map('map').setView([47.1757, 23.0626], 15);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                }).addTo(map);
+                L.marker([47.1757, 23.0626]).addTo(map)
+                    .bindPopup('Zalau, Romania')
+                    .openPopup();
+            </script>
         </div>
     </div>
-</div>
-{% include 'footer.html' %}
+    {% include 'footer.html' %}
 {% endblock %}
