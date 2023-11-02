@@ -16,7 +16,6 @@ class UserCreateView(CreateView):
     form_class = UserForm
     success_url = reverse_lazy('login')
 
-
     def form_valid(self, form):
         if form.is_valid():
             new_user = form.save()
@@ -26,7 +25,6 @@ class UserCreateView(CreateView):
                                           membership=Membership.objects.get(type=self.request.GET.get('m')),
                                           start_date=start_date,
                                           end_date=end_date),
-
 
             return redirect('login')
         else:

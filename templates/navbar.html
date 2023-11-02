@@ -8,11 +8,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-right: 35px; ">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" style="margin-right: 10px" aria-current="page" href="{% url 'homepage' %}">Home</a>
+                    <a class="nav-link active" style="margin-right: 10px" aria-current="page"
+                       href="{% url 'homepage' %}">Home</a>
                 </li>
                 {% if user.is_authenticated %}
                     <div class="dropdown" data-bs-theme="dark">
-                        <button class="btn btn-{{ color }} dropdown-toggle" style="margin-right: 10px;" type="button" id="dropdownMenuButtonDark"
+                        <button class="btn btn-{{ color }} dropdown-toggle" style="margin-right: 10px;" type="button"
+                                id="dropdownMenuButtonDark"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                             Providers
                         </button>
@@ -52,7 +54,7 @@
             {% else %}
                 <div>
                     <a href="{% url 'login' %}" class="btn btn-outline-success">Login</a>
-                    <a href="{% url 'create-user' %}" class="btn btn-outline-secondary">Sign up</a>
+                    <a href="{% url 'homepage' %}#membership" class="btn btn-outline-secondary">Sign up</a>
                 </div>
             {% endif %}
         </div>
