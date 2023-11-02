@@ -144,10 +144,10 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/' # unde vrem ca utilizatorul sa fie redirectionat dupa auten'ficare (vom specifica prefixul)
 LOGOUT_REDIRECT_URL = '/login/' # unde vrem ca u'lizatorul sa fie redirec'onat dupa delogare
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'mail.blacklist.ro'
-# EMAIL_HOST_USER = 'aplicatie@blacklist.ro'
-# EMAIL_HOST_PASSWORD = 'Django1234!'
-# EMAIL_PORT = 587
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'mail.dumavlad.eu'
+EMAIL_HOST_USER = 'office@dumavlad.eu'
+EMAIL_HOST_PASSWORD = 'Django1234!'
+EMAIL_PORT = 587
