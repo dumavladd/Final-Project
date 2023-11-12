@@ -3,13 +3,35 @@
 {% block title %} Team {% endblock %}
 
 {% block content %}
+    <br><br>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2">
-            <br>
-            <img src="{% static 'media/images/Rares.jpg' %}" class="rounded ms-auto d-block" alt="...">
-            <br>
-            <img src="{% static 'media/images/Vladd.jpg' %}" class="rounded ms-auto d-block" alt="...">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card text-center border-secondary text-bg-secondary" style="width: 22rem;">
+                <img src="{% static 'media/images/Rares.jpeg' %}"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-light">Profile</h5>
+                    <p class="card-text">Name: Heghedus Rares Ionut <br>
+                        Date of birth: 09.08.1995<br>
+                        Email: heghedusrares11@icloud.com</p>
+                    <a href="{% url 'cv' %}" class="btn btn-primary">CV 📑</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-center border-secondary text-bg-secondary" style="width: 22rem;">
+                <img src="{% static 'media/images/Vlad.jpeg' %}"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-light">Profile</h5>
+                    <p class="card-text">Name: Duma Vlad <br>
+                        Date of birth: 03.03.1995<br>
+                        Email: duma.vlad@yahoo.com</p>
+                    <a href="{% url 'cv' %}" class="btn btn-primary">CV 📑</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

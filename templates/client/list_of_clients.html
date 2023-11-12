@@ -120,4 +120,54 @@
             </div>
         </div>
     </div>
+    {% load static %}
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+            <div class="col-12 col-md">
+                <img src="{% static 'media/images/logo.png' %}" alt="Blacklist">
+
+            </div>
+            <div class="col-6 col-md">
+                <br><br><br>
+                <h5>Features</h5>
+                <ul class="list-unstyled text-small">
+                    <li class="mb-1"><a
+                            class="link-secondary text-decoration-none"
+                            href="{% url 'cv' %}">CV</a></li>
+                    <li class="mb-1"><a
+                            class="link-secondary text-decoration-none"
+                            href="{% url 'stuff' %}">Stuff for developers</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <br><br><br>
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li class="mb-1"><a
+                            class="link-secondary text-decoration-none"
+                            href="{% url 'resource' %}">Resource</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <br><br><br>
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                    <li class="mb-1"><a
+                            class="link-secondary text-decoration-none"
+                            href="{% url 'team' %}">Team</a></li>
+                    <li class="mb-1"><a
+                            class="link-secondary text-decoration-none"
+                            href="{% url 'location' %}">Locations</a></li>
+                    <li class="mb-1"><a
+                            class="link-secondary text-decoration-none"
+                            href="{% url 'privacy' %}">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+        <br><br>
+        <div class="heading-text text-center">Copyright ©</div>
+        <div class="heading-text text-center">Software Development Academy</div>
+        <div class="heading-text text-center">Software Developer: Duma Vlad-Catalin</div>
+        <div class="heading-text text-center">Email: duma.vlad@yahoo.com</div>
+    </footer>
 {% endblock %}
