@@ -28,7 +28,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Membership valability</h5>
                         <p class="card-text text-{{ color }}">Your subscription is from {{ start_date|date:"d-m-Y" }}
-                        to {{ end_date|date:"d-m-Y" }}</p>
+                            to {{ end_date|date:"d-m-Y" }}</p>
                     </div>
                 </div>
             </div>
@@ -56,15 +56,15 @@
                                         </li>
                                     </ul>
                                     {% if user.is_authenticated %}
-                                    <a href="{% url 'homepage' %}?m={{ membership.type }}"
-                                            class="w-100 btn btn-lg btn-outline-light">
-                                        You already have {{ type }}
-                                    </a>
+                                        <a href="{% url 'homepage' %}?m={{ membership.type }}"
+                                           class="w-100 btn btn-lg btn-outline-light">
+                                            You already have {{ type }}
+                                        </a>
                                     {% else %}
-                                    <a href="{% url 'create-user' %}?m={{ membership.type }}"
-                                            class="w-100 btn btn-lg btn-outline-light">
-                                        Buy for {{ membership.price }}{{ membership.currency }}
-                                    </a>
+                                        <a href="{% url 'create-user' %}?m={{ membership.type }}"
+                                           class="w-100 btn btn-lg btn-outline-light">
+                                            Buy for {{ membership.price }}{{ membership.currency }}
+                                        </a>
                                     {% endif %}
                                 </div>
                             </div>
@@ -140,4 +140,7 @@
         </div>
     </div>
     {% include 'footer.html' %}
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+    <div class="elfsight-app-680b473e-68e8-4c97-aeb4-5225d941886e" data-elfsight-app-lazy>
+    </div>
 {% endblock %}
